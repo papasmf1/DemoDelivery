@@ -55,8 +55,19 @@ class ViewController: UIViewController {
         
     }
     
-    
     @IBAction func onSubmit(_ sender: Any) {
+        //옵셔널 바인딩
+        //다운캐스팅
+        if let uvc = self.storyboard?.instantiateViewController(withIdentifier: "ResultViewController") as? ResultViewController {
+            uvc.paramTextField = self.paramTextField.text!
+            uvc.paramSwitch = self.paramSwitch.isOn
+            uvc.paramStepper = self.paramStepper.value
+            uvc.paramSlider = self.paramSlider.value
+            uvc.paramSegment = self.paramSegment.selectedSegmentIndex
+            //뷰 스위칭
+            self.present(uvc, animated: true)
+        }
+        
     }
     
     
